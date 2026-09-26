@@ -84,7 +84,7 @@
     // "ADMIN_PASS": "",
     //
     // CORS 白名单（逗号分隔，不设则仅同源）
-    // "ALLOW_URLS": "https://yourdomain.com",
+    // "ALLOW_URLS": "shturl.cc/gepahDybGDN0",
 
     // ── 可选参数 ──────────────────────────────────────────────────────────
     //
@@ -135,15 +135,13 @@
   // ===========================================================================
   // 存储绑定
   // ===========================================================================
-  //
-  // ▶ 方案 A：KV（默认启用，免费额度大、最通用）
-  //   ⚠️ 必须【完全省略 id 字段】，不能写成 "id": ""：
-  //      wrangler 配置校验会拒绝空字符串 id（"should have a string id field"）。
-  //   省略 id 后：首次部署由 wrangler 自动创建 openlist-tsworkers-kv 并绑定；
-  //   二次部署通过 inherit 复用已有绑定，不会重复创建。
-  //   若想改用账户里已有的 KV，把该命名空间的 id 填进来即可。
-  //
-  //  "kv_namespaces": [{ "binding": "KV" }],
+  "kv_namespaces": [
+    {
+      "binding": "OPENLISTNEXT_KV",
+      "id": "f5df6d2bf00145cca7f158dc51ba05bb"
+    }
+  ]
+
   //
   // ▶ 方案 B：D1（关系型，可与 Go 后端共享库；DB_FORMAT 建议改为 "sql"）
   //   控制台：Workers & Pages → D1 → 创建数据库 → 绑定到 Worker，变量名填 DB
